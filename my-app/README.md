@@ -1,3 +1,12 @@
+# The issue with the svelte store
+## Background
+- Hello, I am looking for assistance to solve a problem. What I have in this repo is a small piece of a larger project. What I am trying to do is be able to select one vehicle and send that to the update modal. 
+## To the Issue
+- I have been trying to devise a way to either send the index of the vehicle clicked on to the modal so I can then use it to isolate the object needed.
+- Or isolate the vehicle by vehicle_id and be able to use that to ony display that one object. 
+
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
