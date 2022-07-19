@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:100,300,400,500,700,900&display=swap');
+
+/* ROOT */
+:root {
+    --main-height: calc(100vh - var(--header-height));
+    --heading-hight: 45px;
+    --header-height: 130px;
+    --footer-height: 20px;
+    --menu-static-area-height: 200px;
+    --primary-container-max-width: 940px;
+    --desktop-menu-width: 500px;
+    --grid-gap: 5px;
+    --primary-color: #0080ff;
+    --primary-color-transparant: rgba(0, 128, 255, 0.7);
+    --success-color: #008b00;
+    --success-color-transparant: rgba(0, 139, 0, 0.7);
+    --warning-color: #ff8a00;
+    --warning-color-transparant: rgba(255, 138, 0, 0.7);
+    --alert-color: #af0000;
+    --alert-color-transparant: rgba(175, 0, 0, 0.7);
+    --black-color: #000000;
+    --link-color: #edf054;
+    --black-color-transparant-9: rgba(0, 0, 0, 0.9);
+    --black-color-transparant-8: rgba(0, 0, 0, 0.8);
+    --black-color-transparant-7: rgba(0, 0, 0, 0.7);
+    --black-color-transparant-6: rgba(0, 0, 0, 0.6);
+    --black-color-transparant-5: rgba(0, 0, 0, 0.5);
+    --black-color-transparant-4: rgba(0, 0, 0, 0.4);
+    --black-color-transparant-3: rgba(0, 0, 0, 0.3);
+    --black-color-transparant-2: rgba(0, 0, 0, 0.2);
+    --black-color-transparant-1: rgba(0, 0, 0, 0.1);
+    --white-color: #ffffff;
+    --dark-grey-color: #282828;
+    --medium-dark-grey-color: #585858;
+    --medium-grey-color: #808080;
+    --medium-light-grey-color: #a9a9a9;
+    --light-grey-color: #d3d3d3;
+    --light-light-grey-color: #f5f5f5;
+    --shadow-down: 0px 5px 5px 3px var(--black-color-transparant-7);
+    --shadow-up: 5px 0px 5px 3px var(--black-color-transparant-7);
+    --shadow-down-right: 5px 5px 10px 5px var(--black-color-transparant-7);
+    --shadow-outer: 0 0 10px 5px var(--black-color-transparant-7);
+    --shadow-drop-bottom-left: -5px 5px 10px var(--black-color-transparant-7);
+    --shado-drop-outer: 0 0 10px var(--black-color-transparant-7);
+    --shadow-outer-dark-grey: 0 0 10px 5px var(--dark-grey-color);
+    --container-width: 940px;
+    --text-weight-thin: 100;
+    --text-weight-light: 300;
+    --text-weight-normal: 400;
+    --text-weight-semi-bold: 500;
+    --text-weight-bold: 700;
+    --text-weight-black: 900;
+}
+
+/* GLASSMORPHISM BACKGROUND */
+.glassmorphism {
+    backdrop-filter: blur(4px) saturate(7%);
+    -webkit-backdrop-filter: blur(4px) saturate(7%);
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    /* border: 1px solid rgba(255, 255, 255, 0.125); */
+}
+
+/* GRID SYSTEM */
+/* REFERENCE TO CSS TRICKS https://css-tricks.com/snippets/css/complete-guide-grid/ */
+
+.primary-container {
+    max-width: var(--primary-container-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto;
+    /* 2nd row height has to be calculated (full screen - header - footer - 4 gaps * 5px) */
+    grid-template-rows: [row1-start] 90px [row1-end row2-start] var(--main-height) [row2-end row3-start] 20px [row3-end];
+    grid-gap: var(--grid-gap);
+    position: relative;
+    filter: drop-shadow(var(--shado-drop-outer));
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: auto;
+    /* We need to devide screen width by 1.8888 to get ratio 17:9 */
+    grid-template-rows: [row1-start] calc((100vw - 10px) / 1.8888) [row1-end row2-start] auto [row2-end];
+    grid-gap: var(--grid-gap);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: [row1-start] var(--main-height) [row1-end];
+}
+
+.header {
+    z-index: 10;
+}
+
+/* MAIN STYLES */
+html,
+* {
+    font-family: 'Barlow', sans-serif;
+}
+
+body {
+    margin: 5px;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    background-attachment: fixed;
+}
+
+main {
+    max-height: var(--main-height);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-radius: 5px;
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+}
+
+p,
+span,
+li {
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 1.5;
+    cursor: default;
+}
+
+hr {
+    border-color: var(--primary-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+h4 {
+    color: var(--dark-grey-color);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+h5 {
+    color: var(--dark-grey-color);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+h6 {
+    color: var(--dark-grey-color);
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+.tc {
+    text-align: center;
+}
+
+/* FORM */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column-reverse;
+}
+
+.error-message {
+    color: rgb(255 124 124);
+    margin: 0.25rem 0;
+    font-size: 1rem;
+}
+
+.empty-string {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+    color: transparent;
+    visibility: hidden;
+}
+
+/* END FORM */
+
+/* COLORS */
+.primary-color {
+    color: var(--primary-color);
+}
+
+.success-color {
+    color: var(--success-color);
+}
+
+.link-color {
+    color: var(--link-color);
+}
+
+.alert-color {
+    color: var(--alert-color);
+}
+
+/* END COLORS */
+
+/* PADDING/MARGIN */
+.m {
+    margin: 0.5rem;
+}
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.m-1 {
+    margin: 1rem;
+}
+
+.m-2 {
+    margin: 2rem;
+}
+
+.m-3 {
+    margin: 3rem;
+}
+
+.my {
+    margin: 0.5rem 0;
+}
+
+.my-1 {
+    margin: 1rem 0;
+}
+
+.my-2 {
+    margin: 2rem 0;
+}
+
+.my-3 {
+    margin: 3rem 0;
+}
+
+.mx {
+    margin: 0 0.5rem;
+}
+
+.mx-1 {
+    margin: 0 1rem;
+}
+
+.mx-2 {
+    margin: 0 2rem;
+}
+
+.mx-3 {
+    margin: 0 3rem;
+}
+
+.mt {
+    margin-top: 0.5rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+.mb {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.ml-1 {
+    margin-left: 0.25rem;
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}
+
+.ml-3 {
+    margin-left: 1rem;
+}
+
+.ml-4 {
+    margin-left: 1.5rem;
+}
+
+.mr-0 {
+    margin-right: 0;
+}
+
+.mr-1 {
+    margin-right: 0.25rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.mr-3 {
+    margin-right: 1rem;
+}
+
+.mr-4 {
+    margin-right: 1.5rem;
+}
+
+/* Padding */
+.p {
+    padding: 0.5rem;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+.pl-1 {
+    padding-left: 1rem;
+}
+
+.pl-2 {
+    padding-left: 2rem;
+}
+
+.pl-3 {
+    padding-left: 3rem;
+}
+
+.pl-4 {
+    padding-left: 4rem;
+}
+
+.pr-0 {
+    padding-right: 0 !important;
+}
+
+.pr-1 {
+    padding-right: 1rem;
+}
+
+.pr-2 {
+    padding-right: 2rem;
+}
+
+.pr-3 {
+    padding-right: 3rem;
+}
+
+.py {
+    padding: 0.5rem 0;
+}
+
+.py-1 {
+    padding: 1rem 0;
+}
+
+.py-2 {
+    padding: 2rem 0;
+}
+
+.py-3 {
+    padding: 3rem 0;
+}
+
+.px {
+    padding: 0 0.5rem;
+}
+
+.px-1 {
+    padding: 0 1rem;
+}
+
+.px-2 {
+    padding: 0 2rem;
+}
+
+.px-3 {
+    padding: 0 3rem;
+}
+
+.pt {
+    padding-top: 0.5rem;
+}
+
+.pt-1 {
+    padding-top: 1rem;
+}
+
+.pt-2 {
+    padding-top: 2rem;
+}
+
+.pt-3 {
+    padding-top: 3rem;
+}
+
+.pt-4 {
+    padding-top: 4rem;
+}
+
+.pb {
+    padding-bottom: 0.5rem;
+}
+
+.pb-1 {
+    padding-bottom: 1rem;
+}
+
+.pb-2 {
+    padding-bottom: 2rem;
+}
+
+.pb-3 {
+    padding-bottom: 3rem;
+}
+
+/* REGULAR STYLES */
+
+/* MODALS */
+.modal {
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    top: calc(var(--header-height) - var(--footer-height) - 15px);
+    height: var(--main-height);
+    width: 100%;
+}
+
+.side-modal {
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    top: calc(var(--header-height) - var(--footer-height) - 15px);
+    height: min-content;
+    width: 70%;
+}
+
+@media (min-width: 576px) {
+    .modal {
+        width: var(--desktop-menu-width);
+        height: calc(var(--main-height) - var(--header-height));
+        left: calc(var(--primary-container-max-width) / 2 - var(--desktop-menu-width) / 2);
+        filter: drop-shadow(var(--shado-drop-outer));
+    }
+
+    .side-modal {
+        position: fixed;
+        z-index: 2;
+        right: 0;
+        top: calc(var(--header-height) - var(--footer-height) + 35px);
+        width: var(--desktop-menu-width);
+        height: calc(var(--main-height) - var(--header-height));
+        filter: drop-shadow(var(--shado-drop-outer));
+    }
+}
+
+/* END MODALS */
+
+.blur {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    backdrop-filter: blur(6px) saturate(3%);
+    -webkit-backdrop-filter: blur(6px) saturate(3%);
+    background-color: rgba(225, 225, 225, 0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dashboard-return {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--link-color);
+    font-size: 0.7rem;
+    width: 75px;
+    text-align: right;
+    margin: 0 5px 0 0 !important;
+}
+
+.dashboard-return>a {
+    color: var(--link-color);
+}
+
+.submenu-header {
+    position: relative;
+}
+
+.submenu-main-area {
+    max-height: calc((var(--main-height) - var(--menu-static-area-height) + var(--footer-height)) * 0.75);
+    overflow-y: auto;
+    z-index: 2;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 0 5px 0 5px;
+}
+
+.submenu-main-area::-webkit-scrollbar {
+    display: none;
+}
+
+.center-items {
+    display: flex;
+    justify-content: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.primary-hover:hover {
+    color: var(--primary-color);
+}
+
+@media (min-width: 576px) {
+    .main-container {
+        /* We need to devide screen width by 1.8888 to get ratio 17:9 */
+        /* Q: Ratio for big screen??? */
+        grid-template-rows: [row1-start] calc(var(--primary-container-max-width) / 1.8888) [row1-end row2-start] auto [row2-end];
+    }
+
+    .submenu-main-area {
+        max-height: calc((var(--main-height) - var(--menu-static-area-height) - 70px) * 0.75);
+    }
+}
+
+@media (max-width: 576px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        width: 100% !important;
+    }
+
+    img,
+    iframe {
+        max-width: 100% !important;
+    }
+}

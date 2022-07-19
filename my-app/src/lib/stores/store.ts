@@ -23,3 +23,7 @@ export let vehicles = writable(<PermitVehicleModel[]>[{
     vehicle_other: "",
   }
 ],);
+
+export let firstModalLoad = writable(<boolean> false);
+export let fadeDelay = readable(<number> 100);
+export let fadeDuration = readable(<number> 300);
