@@ -1,3 +1,5 @@
+
+// this is a mirror of my data model in the database
 export interface PermitVehicleModel {
     vehicle_id: string;
     user_id: string;

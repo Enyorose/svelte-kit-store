@@ -39,6 +39,7 @@
 			</div>
 		</div>
 		<div class="action-buttons">
+			<!-- I need to be able to send the index number to the modal when the update button is clicked -->
 			<span
 				class="cursor-pointer primary-hover mx-2"
 				on:click={() => {

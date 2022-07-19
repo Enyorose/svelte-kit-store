@@ -1,6 +1,7 @@
 import type { PermitVehicleModel } from "../models/userModel";
 import { readable, writable } from "svelte/store";
 
+//this array mirrors what is stored when I call from the database
 export let vehicles = writable(<PermitVehicleModel[]>[{
     vehicle_id: "j679hjk",
     user_id: "kjsi879",
@@ -24,6 +25,5 @@ export let vehicles = writable(<PermitVehicleModel[]>[{
   }
 ],);
 
-export let firstModalLoad = writable(<boolean> false);
 export let fadeDelay = readable(<number> 100);
 export let fadeDuration = readable(<number> 300);

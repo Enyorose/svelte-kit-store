@@ -8,6 +8,7 @@ import Button from '$lib/ui/Button.svelte';
 let firstLoad: boolean = true;
 const dispatch = createEventDispatcher();
 
+//this function is used to close the modal.
 const closeModal = (): void => {
 		if (!firstLoad) dispatch('close');
 		if (firstLoad) firstLoad = !firstLoad;
@@ -26,6 +27,7 @@ const closeModal = (): void => {
 				<form on:submit|preventDefault>
 					<div class="field-items-container">
 						<div class="field-item">
+							<!-- I need to be able to pass the index number of the selected vehicle to the bind:value -->
 							<TextInputV
 								type="text"
 								id="make"
@@ -90,7 +92,6 @@ const closeModal = (): void => {
 	-webkit-backdrop-filter: blur(4px) saturate(7%);
 	background-color: rgba(0, 0, 0, 0.75);
 	border-radius: 5px;
-	/* border: 1px solid rgba(255, 255, 255, 0.125); */
 }
 .modal {
 		width: 500px;
